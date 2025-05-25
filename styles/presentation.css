@@ -1,0 +1,23 @@
+.contenedor {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.imagen {
+  width: 100%;
+  object-fit: cover;
+  transition: opacity 1s ease;
+}
+
+#img2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+}
+
+.oculto {
+  opacity: 0;
+  pointer-events: none;
+}
