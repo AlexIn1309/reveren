@@ -7,6 +7,7 @@
   border-bottom: 1px solid #ccc;
   position: relative;
   z-index: 10;
+  gap: 10px;
 }
 
 .nav-links {
@@ -53,7 +54,8 @@
 
 .search-box {
   position: absolute;
-  right: 60px;
+  /* Before: 60px, maybe should be relative to adapt to more icons */
+  right: 100px;
   opacity: 0;
   width: 0;
   overflow: hidden;
@@ -142,4 +144,27 @@
   display: flex;
   align-items: center;
   gap: 20px;
+}
+/* Shopping cart */
+.shopping_cart_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.shopping_cart_link {
+  text-decoration: none;
+}
+
+.shopping_cart_link i {
+  color: white;
+  cursor: pointer;
+  font-size: 20px;
+  transition: color 0.3s;
+
+}
+
+.shopping_cart_link :hover {
+  color: #007BFF;
 }

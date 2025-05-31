@@ -3,13 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Presentación</title>
+  <title>Reveren</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <!-- Desactivo: No lo estamos utilizando de momento, nos dio problemas en catalog con boxSizing -->
   <!-- <link rel="stylesheet" href="../bootstrap-5.3.6-dist/css/bootstrap.css" /> -->
   <link rel="stylesheet" href="../styles/presentation.css" />
   <link rel="stylesheet" href="../styles/navbar.css" />
   <link rel="stylesheet" href="../styles/catalog.css">
+  <link rel="stylesheet" href="../styles/footer.css">
 </head>
 <body>
 
@@ -56,6 +57,13 @@
     </div>
     </div>
 
+        <!-- Shopping cart -->
+        <div class="shopping_cart_container">
+            <a href="#" class="shopping_cart_link">
+                <i class="fa fa-shopping-cart"></i>
+                <!-- <span class="cart_count">0</span> -->
+            </a>
+        </div>
   </nav>
 </section>
 
@@ -233,6 +241,51 @@
     <a href="#">Otra opción</a>
   </div>
 </div>
+<!-- Footer -->
+<footer class="main_container_footer">
+    <div class="footer_container">
+        <!-- Information -->
+        <div class="footer_container_columns">
+            <div class="footer_content_column">
+                <h4>Nosotros</h4>
+                <ul>
+                    <li><a href="#">Quienes somos</a></li>
+                    <li><a href="#">Direccion</a></li>
+                </ul>
+            </div>
+            <div class="footer_content_column">
+                <h4>Informacion</h4>
+                <ul>
+                    <li><a href="#">Preguntas frecuentes</a></li>
+                    <li><a href="#">Contactanos</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer_contarner_rows">
+            <div class="footer_content_row footer_subtitle">
+                <h4>Siguenos en:</h4>
+            </div>
+            <!-- Social Media -->
+            <div class="footer_content_row">                
+                <div class="social_media_icons">
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/reve.ren_/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="#"><i class="fa-brands fa-x"></i></a>
+                </div>
+            </div>
+            <div class="footer_content_row">
+                <p>© 2025 Reveren. All rights reserved.</p>
+                <!-- <p>Diseñado por el equipo Reveren</p> -->
+            </div>
+            
+        </div>
+
+    </div>
+
+</footer>
+
 
 <script src="../bootstrap-5.3.6-dist/js/bootstrap.js"></script>
 <script src="../src/main.js"></script>
