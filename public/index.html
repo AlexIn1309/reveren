@@ -14,24 +14,49 @@
 <body>
 
 <section>
-    <nav class="navbar">
-        <div class="logo">
-            
-        <img style="height: 70px;" src="../Assets/reverenlogoicon.png" alt="reveren">
-        </div>
-        <div class="nav-links">
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Catalogo</a></li>
-                <li><a href="#">Nosotros</a></li>
-                <li><a href="#">Comprar</a></li>
-            </ul>
-        </div>
+  <nav class="navbar">
+    <div class="logo">
+      <img style="height: 70px;" src="../Assets/reverenlogoicon.webp" alt="reveren">
+    </div>
+    <div class="nav-links">
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Catalogo</a></li>
+        <li><a href="#">Nosotros</a></li>
+        <li><a href="#">Comprar</a></li>
+      </ul>
+    </div>
+<div class="search-user-group">
+
+    <div class="search-section">
         <input type="checkbox" id="toggleSearch" class="search-toggle">
         <label for="toggleSearch" class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></label>
         <div class="search-box">
             <input type="text" placeholder="Buscar..." />
         </div>
+    </div>
+
+    <div class="user-menu" id="userMenuLoggedOut">
+    <img src="../Assets/usuario.webp" class="user-icon" id="userIcon" alt="User">
+        <div class="user-dropdown" id="userDropdown">
+            <button onclick="showLoginModal()">Iniciar sesión</button>
+            <button onclick="showRegisterModal()">Registrarse</button>
+        </div>
+    </div>
+
+    <!-- Este será el menú que aparece después del login -->
+    <div class="user-menu" id="userMenuLoggedIn" style="display:none;">
+    <img src="../Assets/minepig.webp" class="user-icon" alt="User">
+        <div class="user-dropdown">
+            <a href="#">Configuraciones</a>
+            <a href="#">Carrito</a>
+            <a href="#">drop down idioma</a>
+            <a href="#" onclick="logoutUser()">Cerrar sesión</a>
+        </div>
+    </div>
+    </div>
+
+  </nav>
 </section>
 
 <section class="container">
@@ -169,6 +194,45 @@
 
 </div>
 
+<div id="loginModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('loginModal')">&times;</span>
+    <h2>Iniciar Sesión</h2>
+    <input type="text" placeholder="Usuario">
+    <input type="password" placeholder="Contraseña" id="loginPassword">
+    <label><input type="checkbox" onclick="togglePassword('loginPassword')"> Mostrar contraseña</label>
+    <a href="#">¿Olvidaste tu contraseña?</a><br>
+    <a href="#" onclick="switchToRegister()">¿No tienes cuenta?</a><br>
+    <button onclick="loginUser()">Iniciar sesión</button>
+  </div>
+</div>
+
+
+<div id="registerModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('registerModal')">&times;</span>
+    <h2>Registrarse</h2>
+    <input type="text" placeholder="Nombre">
+    <input type="text" placeholder="Usuario">
+    <input type="email" placeholder="Correo">
+    <input type="password" placeholder="Contraseña">
+    <input type="password" placeholder="Confirmar contraseña">
+    <a href="#" onclick="switchToLogin()">¿Ya tienes cuenta?</a><br>
+    <button>Registrarse</button>
+  </div>
+</div>
+
+</div>
+
+
+<div class="user-logged" id="userLogged" style="display:none">
+  <img src="../Assets/minepig.webp" class="user-icon" alt="User">
+  <div class="user-dropdown">
+    <a href="#">Configuraciones</a>
+    <a href="#">Carrito</a>
+    <a href="#">Otra opción</a>
+  </div>
+</div>
 
 <script src="../bootstrap-5.3.6-dist/js/bootstrap.js"></script>
 <script src="../src/main.js"></script>
