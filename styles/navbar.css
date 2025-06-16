@@ -53,7 +53,6 @@
 }
 
 .search-box {
-  position: absolute;
   /* Before: 60px, maybe should be relative to adapt to more icons */
   right: 100px;
   opacity: 0;

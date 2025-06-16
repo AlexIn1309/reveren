@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reveren</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Desactivo: No lo estamos utilizando de momento, nos dio problemas en catalog con boxSizing -->
+  <!-- <link rel="stylesheet" href="../bootstrap-5.3.6-dist/css/bootstrap.css" /> -->
+  <link rel="stylesheet" href="../styles/presentation.css" />
+  <link rel="stylesheet" href="../styles/navbar.css" />
+  <link rel="stylesheet" href="../styles/catalog.css">
+  <link rel="stylesheet" href="../styles/footer.css">
+  <link rel="stylesheet" href="../styles/filtros.css">
+</head>
+<style>
+  /* about-us.css */
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f8f8;
+    margin: 0;
+    padding: 0;
+}
+
+.about-us-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+/* Sección Hero (encabezado de la página) */
+.about-us-hero {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: #000; /* Fondo oscuro como tu navbar */
+    color: #fff;
+    margin-bottom: 40px;
+    border-radius: 8px;
+}
+
+.about-us-hero h1 {
+    font-size: 3em;
+    margin-bottom: 15px;
+}
+
+.about-us-hero p {
+    font-size: 1.2em;
+    opacity: 0.9;
+}
+
+/* Sección de Visión y Misión */
+.section-vision-mision {
+    display: flex;
+    flex-wrap: wrap; /* Para que se adapten en pantallas pequeñas */
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.section-vision-mision .content-block {
+    flex: 1; /* Ocupa el espacio disponible */
+    min-width: 300px; /* Ancho mínimo antes de que salten de línea */
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.section-vision-mision h2,
+.section-valores h2,
+.section-historia h2,
+.section-testimonios h2,
+.call-to-action h2 {
+    text-align: center;
+    font-size: 2.2em;
+    color: #333;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.section-vision-mision h2::after,
+.section-valores h2::after,
+.section-historia h2::after,
+.section-testimonios h2::after,
+.call-to-action h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: #007BFF; /* Tu color azul de hover */
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+/* Sección de Valores */
+.section-valores {
+    margin-bottom: 40px;
+    background-color: #fff;
+    padding: 40px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.valores-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    text-align: center;
+}
+
+.valor-item {
+    background-color: #f4f4f4; /* Un gris claro para los ítems */
+    padding: 25px;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.valor-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.valor-item h3 {
+    color: #007BFF;
+    font-size: 1.4em;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.valor-item h3 i {
+    font-size: 1.5em;
+    color: #FFA500; /* Un color naranja para los iconos */
+}
+
+/* Sección de Historia */
+.section-historia {
+    background-color: #fff;
+    padding: 40px 20px;
+    margin-bottom: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.section-historia p {
+    font-size: 1.1em;
+    line-height: 1.8;
+    text-align: justify;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Sección de Testimonios */
+.section-testimonios {
+    margin-bottom: 40px;
+    padding: 40px 20px;
+    background-color: #f0f0f0; /* Fondo ligeramente diferente para testimonios */
+    border-radius: 8px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05); /* Sombra interna */
+}
+
+.testimonios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.testimonio-card {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-style: italic;
+    text-align: center;
+    position: relative;
+    padding-top: 40px; /* Espacio para la comilla */
+}
+
+.testimonio-card::before {
+    content: "\201C"; /* Comilla de apertura */
+    font-size: 4em;
+    color: #ccc;
+    position: absolute;
+    top: 5px;
+    left: 10px;
+    line-height: 1;
+}
+
+.testimonio-card p {
+    font-size: 1.1em;
+    margin-bottom: 15px;
+}
+
+.testimonio-card cite {
+    display: block;
+    font-style: normal;
+    font-weight: bold;
+    color: #555;
+    margin-top: 10px;
+}
+
+/* Llamada a la Acción (Call to Action) */
+.call-to-action {
+    text-align: center;
+    background-color: #007BFF; /* Tu color azul */
+    color: #fff;
+    padding: 50px 20px;
+    border-radius: 8px;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.call-to-action h2 {
+    color: #fff;
+}
+.call-to-action h2::after {
+    background-color: #fff; /* Línea blanca debajo del título */
+}
+
+.call-to-action p {
+    font-size: 1.1em;
+    margin-bottom: 30px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn-catalogo {
+    display: inline-block;
+    background-color: #FFA500; /* Un color naranja contrastante */
+    color: #fff;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-catalogo:hover {
+    background-color: #e69500;
+    transform: translateY(-2px);
+}
+
+/* Media Queries para responsividad */
+@media (max-width: 768px) {
+    .about-us-hero h1 {
+        font-size: 2.5em;
+    }
+    .section-vision-mision .content-block {
+        min-width: unset; /* Permite que ocupe todo el ancho */
+        flex-basis: 100%;
+    }
+    .valores-grid, .testimonios-grid {
+        grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+    }
+}
+
+@media (max-width: 480px) {
+    .about-us-hero {
+        padding: 40px 15px;
+    }
+    .about-us-hero h1 {
+        font-size: 2em;
+    }
+    .about-us-container {
+        padding: 0 15px;
+    }
+    .section-vision-mision .content-block,
+    .section-valores,
+    .section-historia,
+    .section-testimonios,
+    .call-to-action {
+        padding: 25px 15px;
+    }
+    .section-vision-mision h2,
+    .section-valores h2,
+    .section-historia h2,
+    .section-testimonios h2,
+    .call-to-action h2 {
+        font-size: 1.8em;
+    }
+    .btn-catalogo {
+        padding: 12px 25px;
+        font-size: 1em;
+    }
+}
+</style>
+
+<body>
+
+<section>
+  <nav class="navbar">
+    <div class="logo">
+      <img style="height: 70px;" src="../Assets/reverenlogoicon.webp" alt="reveren">
+    </div>
+    <div class="nav-links">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="catalog.html">Catalogo</a></li>
+        <li><a href="aboutus.html">Nosotros</a></li>
+      </ul>
+    </div>
+<div class="search-user-group">
+
+    <div class="search-section">
+        <input type="checkbox" id="toggleSearch" class="search-toggle">
+        <div class="search-box">
+            <input type="text" placeholder="Buscar..." />
+        </div>
+        <label for="toggleSearch" class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></label>
+    </div>
+
+    <div class="user-menu" id="userMenuLoggedOut">
+    <img src="../Assets/usuario.webp" class="user-icon" id="userIcon" alt="User">
+        <div class="user-dropdown" id="userDropdown">
+            <button onclick="showLoginModal()">Iniciar sesión</button>
+            <button onclick="showRegisterModal()">Registrarse</button>
+        </div>
+    </div>
+
+    <!-- Este será el menú que aparece después del login -->
+    <div class="user-menu" id="userMenuLoggedIn" style="display:none;">
+    <img src="../Assets/minepig.webp" class="user-icon" id="userLogged" alt="User">
+        <div class="user-dropdown" id="loggedDropdown">
+            <a href="#">Configuraciones</a>
+            <a href="#">Carrito</a>
+            <a href="#">drop down idioma</a>
+            <a href="#" onclick="logoutUser()">Cerrar sesión</a>
+        </div>
+    </div>
+    </div>
+
+        <!-- Shopping cart -->
+        <div class="shopping_cart_container">
+            <a href="#" class="shopping_cart_link">
+                <i class="fa fa-shopping-cart"></i>
+                <!-- <span class="cart_count">0</span> -->
+            </a>
+        </div>
+  </nav>
+</section>
+
+    <main class="about-us-container">
+
+        <section class="about-us-hero">
+            <h1>Conoce la Esencia de Reveren</h1>
+            <p>Donde la creatividad de Guadalajara se encuentra con tu estilo único.</p>
+        </section>
+
+        <section class="section-vision-mision">
+            <div class="content-block">
+                <h2>Nuestra Visión</h2>
+                <p>En Reveren, nuestra visión es ser la **marca de playeras líder para la juventud contemporánea en México**, reconocida por trascender la moda a través de **diseños innovadores y originales** que empoderan la expresión individual y fomentan la confianza en cada persona. Aspiramos a ser el referente de estilo que acompaña la personalidad única de cada joven.</p>
+            </div>
+            <div class="content-block">
+                <h2>Nuestra Misión</h2>
+                <p>Nuestra misión en Reveren es **diseñar y ofrecer playeras de la más alta calidad** con estampados creativos y originales, que permitan a nuestros clientes, especialmente a la juventud de Guadalajara y de todo México, **expresar su personalidad y estilo único**. Nos comprometemos a brindar una **experiencia de compra en línea sencilla, accesible y excepcional**, asegurando que cada prenda no solo vista, sino que también cuente una historia.</p>
+            </div>
+        </section>
+
+        <section class="section-valores">
+            <h2>Nuestros Valores</h2>
+            <div class="valores-grid">
+                <div class="valor-item">
+                    <h3><i class="fas fa-lightbulb"></i> Originalidad</h3>
+                    <p>Creemos en la diferenciación y la creatividad como pilares de cada diseño, asegurando que cada prenda sea única.</p>
+                </div>
+                <div class="valor-item">
+                    <h3><i class="fas fa-award"></i> Calidad</h3>
+                    <p>Compromiso inquebrantable con la excelencia en materiales y confección para ofrecer prendas de durabilidad superior.</p>
+                </div>
+                <div class="valor-item">
+                    <h3><i class="fas fa-user-tag"></i> Expresión Individual</h3>
+                    <p>Fomentamos la autenticidad, ayudando a cada cliente a encontrar y proyectar su voz a través de nuestras playeras.</p>
+                </div>
+                <div class="valor-item">
+                    <h3><i class="fas fa-shipping-fast"></i> Accesibilidad</h3>
+                    <p>Buscamos que nuestros diseños y servicios estén al alcance de todos, con una plataforma de compra intuitiva y eficiente.</p>
+                </div>
+                <div class="valor-item">
+                    <h3><i class="fas fa-seedling"></i> Juventud y Frescura</h3>
+                    <p>Mantenemos una corriente innovadora y dinámica, creando tendencias que resuenan con el espíritu joven.</p>
+                </div>
+                <div class="valor-item">
+                    <h3><i class="fas fa-map-marker-alt"></i> Arraigo Local</h3>
+                    <p>Orgullo por nuestras raíces en Guadalajara, llevando la creatividad tapatía a cada rincón de México y más allá.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-historia">
+            <h2>Nuestra Historia</h2>
+            <p>Reveren nace en el corazón de **Guadalajara** con la visión de romper moldes en la moda juvenil. Nos dimos cuenta de que las playeras eran más que una prenda; eran un lienzo para la identidad. Así, un grupo de mentes creativas se unió para fundar Reveren, con la meta de ofrecer diseños frescos y de calidad que hablaran por sí mismos, y llevarlos directamente a ti a través de una experiencia en línea inigualable. Desde entonces, hemos crecido, pero nuestra pasión por la originalidad y la expresión sigue siendo el motor de cada hilo.</p>
+        </section>
+
+        <section class="section-testimonios">
+            <h2>Lo que Dicen Nuestros Clientes</h2>
+            <div class="testimonios-grid">
+                <div class="testimonio-card">
+                    <p>"Las playeras de Reveren son súper originales y la calidad es top. ¡Mi favorita!"</p>
+                    <cite>— Ana S., 22 años</cite>
+                </div>
+                <div class="testimonio-card">
+                    <p>"¡El proceso de compra es rapidísimo y siempre encuentro diseños que nadie más tiene!"</p>
+                    <cite>— Carlos M., 19 años</cite>
+                </div>
+                <div class="testimonio-card">
+                    <p>"Me encanta que puedo encontrar diseños que realmente reflejan mi personalidad. ¡Excelente trabajo, Reveren!"</p>
+                    <cite>— Sofía R., 20 años</cite>
+                </div>
+            </div>
+        </section>
+
+        <section class="call-to-action">
+            <h2>¿Listo para expresar tu estilo?</h2>
+            <p>Explora nuestra colección de playeras y encuentra esa prenda que te haga único.</p>
+            <a href="#" class="btn-catalogo">¡Ir al Catálogo!</a>
+        </section>
+
+    </main>
+
+<div id="loginModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('loginModal')">&times;</span>
+    <h2>Iniciar Sesión</h2>
+    <input type="text" placeholder="Usuario">
+    <input type="password" placeholder="Contraseña" id="loginPassword">
+    <label><input type="checkbox" onclick="togglePassword('loginPassword')"> Mostrar contraseña</label>
+    <a href="#">¿Olvidaste tu contraseña?</a><br>
+    <a href="#" onclick="switchToRegister()">¿No tienes cuenta?</a><br>
+    <button onclick="loginUser()">Iniciar sesión</button>
+  </div>
+</div>
+
+
+<div id="registerModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('registerModal')">&times;</span>
+    <h2>Registrarse</h2>
+    <input type="text" placeholder="Nombre">
+    <input type="text" placeholder="Usuario">
+    <input type="email" placeholder="Correo">
+    <input type="password" placeholder="Contraseña">
+    <input type="password" placeholder="Confirmar contraseña">
+    <a href="#" onclick="switchToLogin()">¿Ya tienes cuenta?</a><br>
+    <button>Registrarse</button>
+  </div>
+</div>
+
+</div>
+
+
+<div class="user-logged" id="userLogged" style="display:none">
+  <img src="../Assets/minepig.webp" class="user-icon" alt="User">
+  <div class="user-dropdown">
+    <a href="#">Configuraciones</a>
+    <a href="#">Carrito</a>
+    <a href="#">Otra opción</a>
+  </div>
+</div>
+<!-- Footer -->
+<footer class="main_container_footer">
+    <div class="footer_container">
+        <!-- Information -->
+        <div class="footer_container_columns">
+            <div class="footer_content_column">
+                <h4>Nosotros</h4>
+                <ul>
+                    <li><a href="#">Quienes somos</a></li>
+                    <li><a href="#">Direccion</a></li>
+                </ul>
+            </div>
+            <div class="footer_content_column">
+                <h4>Informacion</h4>
+                <ul>
+                    <li><a href="#">Preguntas frecuentes</a></li>
+                    <li><a href="#">Contactanos</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer_contarner_rows">
+            <div class="footer_content_row footer_subtitle">
+                <h4>Siguenos en:</h4>
+            </div>
+            <!-- Social Media -->
+            <div class="footer_content_row">                
+                <div class="social_media_icons">
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/reve.ren_/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="#"><i class="fa-brands fa-x"></i></a>
+                </div>
+            </div>
+            <div class="footer_content_row">
+                <p>© 2025 Reveren. All rights reserved.</p>
+                <!-- <p>Diseñado por el equipo Reveren</p> -->
+            </div>
+            
+        </div>
+
+    </div>
+</footer>
+<script src="../src/main.js"></script>
+</body>
+</html>
