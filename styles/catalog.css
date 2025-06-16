@@ -1,3 +1,7 @@
+* {
+    /* box-sizing: border-box; */
+}
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
@@ -8,8 +12,9 @@ body {
 .catalog_main_container {
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
-    /* justify-content: center; */
+    align-items: center; /* Alinea los items al centro */
+    /*flex-wrap: wrap;  Permite que los items se ajusten en varias filas */
+    justify-content: center;
     /* padding: 20px; */
 }
 
@@ -34,12 +39,41 @@ body {
     gap: 20px;
 } */
 
-.catalog_item_main_container {
+/* .catalog_item_main_container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
     padding: 20px;
+    max-width: 1250px; 4 cards * 250px + gaps
+}  */
+/* Reemplazado por clase de abajo para fix de que solo se muestren max 4 productos a lo ancho por mas grande que sea la pantalla */
+
+.catalog_item_main_container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 1200px; /* 4 cards * 250px + gaps  */
+    margin: 0 auto;
+    gap: 20px;
+    padding: 20px;
+}
+
+@media (max-width: 1450px) {
+  .catalog_item_main_container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 1100px) {
+  .catalog_item_main_container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 690px) {
+  .catalog_item_main_container {
+    grid-template-columns: 1fr;
+  }
 }
 
 .catalog_item {
@@ -54,6 +88,11 @@ body {
     /* background-color: rgb(198, 198, 198); */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
+    transition: transform 0.2s ease; /* Agrega dinamismo a los items junto con la clase de abajo ".catalog_item:hover" */
+}
+
+.catalog_item:hover {
+    transform: scale(1.02);
 }
 
 .catalog_item_image_container {
