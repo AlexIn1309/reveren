@@ -65,3 +65,20 @@ document.addEventListener("DOMContentLoaded", function () {
   function closeModal(id) {
     document.getElementById(id).style.display = 'none';
   }
+
+  // Shopping cart functionality
+  document.addEventListener("DOMContentLoaded", function () {
+  const cartIcon = document.querySelector(".shopping_cart_link");
+  const cartDropdown = document.getElementById("shoppingCartDropdown");
+
+  cartIcon.addEventListener("click", function (e) {
+    e.preventDefault();
+    cartDropdown.style.display = cartDropdown.style.display === "block" ? "none" : "block";
+  });
+
+  document.addEventListener("click", function (e) {
+    if (!cartIcon.contains(e.target) && !cartDropdown.contains(e.target)) {
+      cartDropdown.style.display = "none";
+    }
+  });
+});
